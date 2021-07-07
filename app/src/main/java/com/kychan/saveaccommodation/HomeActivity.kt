@@ -3,7 +3,7 @@ package com.kychan.saveaccommodation
 import android.os.Bundle
 import com.iron.espresso.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityHomeBinding
-import com.kychan.saveaccommodation.ui.AccommodationListFragment
+import com.kychan.saveaccommodation.ui.AccommodationFragment
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inflate(it) }
 ) {
@@ -13,7 +13,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inf
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.home_frg_container,
-                AccommodationListFragment.newInstance(),
+                AccommodationFragment.newInstance(),
                 resources.getString(R.string.accommodation_list)
             )
             .commit()

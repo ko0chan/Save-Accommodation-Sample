@@ -5,15 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.iron.espresso.base.BaseFragment
-import com.kychan.saveaccommodation.databinding.FragmentAccommodationListBinding
+import com.kychan.saveaccommodation.databinding.FragmentAccommodationBinding
 
-class AccommodationListFragment : BaseFragment<FragmentAccommodationListBinding>() {
+class AccommodationFragment : BaseFragment<FragmentAccommodationBinding>() {
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentAccommodationListBinding {
-        return FragmentAccommodationListBinding.inflate(inflater, container, false)
+    ): FragmentAccommodationBinding {
+        return FragmentAccommodationBinding.inflate(inflater, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,6 +24,6 @@ class AccommodationListFragment : BaseFragment<FragmentAccommodationListBinding>
 
     companion object {
         fun newInstance() =
-            AccommodationListFragment()
+            AccommodationFragment()
     }
 }
