@@ -24,3 +24,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    pagingVersion = '3.0.0'
+    glideVersion = '4.11.0'
+}
