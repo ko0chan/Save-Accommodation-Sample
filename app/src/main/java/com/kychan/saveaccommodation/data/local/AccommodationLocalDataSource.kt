@@ -1,13 +1,13 @@
 package com.kychan.saveaccommodation.data.local
 
-import androidx.paging.DataSource
 import com.kychan.saveaccommodation.data.local.dao.AccommodationDao
+import io.reactivex.Observable
 import javax.inject.Inject
 
 class AccommodationLocalDataSource @Inject constructor(
     private val accommodationDao: AccommodationDao
 ) {
-    fun getAccommodationAll(): DataSource.Factory<Int, AccommodationEntity> {
+    fun getAccommodationAll(): Observable<List<AccommodationEntity>> {
         return accommodationDao.getAccommodationAll()
     }
 

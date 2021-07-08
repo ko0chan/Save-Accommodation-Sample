@@ -6,7 +6,7 @@ import com.google.android.material.tabs.TabLayout
 import com.iron.espresso.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityHomeBinding
 import com.kychan.saveaccommodation.ui.AccommodationFragment
-import com.kychan.saveaccommodation.ui.BookmarkFragment
+import com.kychan.saveaccommodation.ui.bookmark.BookmarkFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

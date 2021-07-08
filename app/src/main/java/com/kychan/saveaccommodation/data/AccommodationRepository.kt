@@ -5,6 +5,7 @@ import androidx.paging.map
 import com.kychan.saveaccommodation.data.local.AccommodationEntity
 import com.kychan.saveaccommodation.data.local.AccommodationLocalDataSource
 import com.kychan.saveaccommodation.ui.AccommodationItem
+import com.kychan.saveaccommodation.ui.bookmark.BookmarkItem
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -22,6 +23,15 @@ class AccommodationRepository @Inject constructor(
                         accommodationItem.isBookmark = accommodationLocalDataSource.getAccommodationId().contains(it.id)
                     }.start()
                     accommodationItem
+                }
+            }
+    }
+
+    fun fetchBookmarkList(): Observable<List<BookmarkItem>> {
+        return accommodationLocalDataSource.getAccommodationAll()
+            .map { list ->
+                list.map {
+                    it.toBookmarkItem()
                 }
             }
     }

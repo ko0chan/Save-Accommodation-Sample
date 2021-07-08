@@ -1,55 +1,40 @@
-package com.kychan.saveaccommodation.ui
+package com.kychan.saveaccommodation.ui.bookmark
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.rxjava2.cachedIn
 import com.kychan.saveaccommodation.data.AccommodationRepository
-import com.kychan.saveaccommodation.data.local.AccommodationEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import java.text.SimpleDateFormat
 import javax.inject.Inject
 
 @HiltViewModel
-class AccommodationViewModel @Inject constructor(
+class BookmarkViewModel @Inject constructor(
     private val accommodationRepository: AccommodationRepository
 ) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
-    private val _accommodationList = MutableLiveData<PagingData<AccommodationItem>>()
-    val accommodationList: LiveData<PagingData<AccommodationItem>>
-        get() = _accommodationList
+    private val _bookmarkList = MutableLiveData<List<BookmarkItem>>()
+    val bookmarkList: LiveData<List<BookmarkItem>>
+        get() = _bookmarkList
 
     init {
         compositeDisposable.add(
             accommodationRepository
-                .getAccommodationList()
-                .cachedIn(viewModelScope)
+                .fetchBookmarkList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    _accommodationList.value = it
+                    _bookmarkList.value = it
                     Log.d("AccommodationViewModel", it.toString())
                 }, {
                     Log.d("AccommodationViewModel", it.toString())
                 })
         )
-    }
-
-    fun insertAccommodation(item: AccommodationItem) {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-        Thread {
-            accommodationRepository.insertAccommodation(
-                AccommodationEntity.of(item, dateFormat.format(System.currentTimeMillis()))
-            )
-        }.start()
     }
 
     fun deleteAccommodation(id: Int) {
