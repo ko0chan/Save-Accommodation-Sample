@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.rxjava2.cachedIn
 import com.kychan.saveaccommodation.data.AccommodationRepository
+import com.kychan.saveaccommodation.data.local.AccommodationEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -39,5 +40,17 @@ class AccommodationViewModel @Inject constructor(
                     Log.d("AccommodationViewModel", it.toString())
                 })
         )
+    }
+
+    fun insertAccommodation(item: AccommodationItem) {
+        Thread {
+            accommodationRepository.insertAccommodation(AccommodationEntity.of(item))
+        }.start()
+    }
+
+    fun deleteAccommodation(id: Int) {
+        Thread {
+            accommodationRepository.deleteAccommodation(id)
+        }.start()
     }
 }

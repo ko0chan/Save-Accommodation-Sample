@@ -5,5 +5,12 @@ data class AccommodationItem(
     val thumbnail: String,
     val title: String,
     val rate: Float,
+    val description: AccommodationDescriptionItem,
     var isBookmark: Boolean
+)
+
+data class AccommodationDescriptionItem(
+    val imagePath: String,
+    val subject: String,
+    val price: Int,
 )

@@ -33,11 +33,11 @@ class AccommodationViewHolder(
         }
     }
 
-    fun setBookmarkImage(isMyMovie: Boolean) {
-        if (isMyMovie) {
-            binding.bookmark.setImageResource(R.drawable.ic_launcher_foreground)
+    fun setBookmarkImage(isBookmark: Boolean) {
+        if (isBookmark) {
+            binding.bookmark.setImageResource(R.drawable.ic_bookmark)
         } else {
-            binding.bookmark.setImageResource(R.drawable.ic_launcher_foreground)
+            binding.bookmark.setImageResource(R.drawable.ic_twotone_bookmark)
         }
     }
 }

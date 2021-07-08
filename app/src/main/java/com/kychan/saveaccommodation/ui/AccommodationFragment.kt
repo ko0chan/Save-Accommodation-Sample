@@ -16,11 +16,15 @@ class AccommodationFragment : BaseFragment<FragmentAccommodationBinding>() {
 
     private val accommodationViewModel by viewModels<AccommodationViewModel>()
 
-    private val searchMovieAdapter by lazy {
+    private val accommodationAdapter by lazy {
         AccommodationAdapter({
             //item click
         }, {
-            //bookmark click
+            if (it.isBookmark) {
+                accommodationViewModel.deleteAccommodation(it.id)
+            } else {
+                accommodationViewModel.insertAccommodation(it)
+            }
         })
     }
 
@@ -41,14 +45,14 @@ class AccommodationFragment : BaseFragment<FragmentAccommodationBinding>() {
     private fun setView() {
         with(binding) {
             (activity as HomeActivity).supportActionBar?.title = getString(R.string.accommodation_list)
-            rvAccommodation.adapter = searchMovieAdapter
+            rvAccommodation.adapter = accommodationAdapter
         }
     }
 
     private fun setViewModel() {
-        with(accommodationViewModel){
+        with(accommodationViewModel) {
             accommodationList.observe(viewLifecycleOwner, {
-                searchMovieAdapter.submitData(lifecycle, it)
+                accommodationAdapter.submitData(lifecycle, it)
             })
         }
     }
