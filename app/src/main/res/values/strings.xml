@@ -5,4 +5,7 @@
 
     <string name="sort_recent">최근등록순</string>
     <string name="sort_rating">평점순</string>
+
+    <string name="price_won">가격 %d원</string>
+    <string name="empty_bookmark_list">북마크한 숙소가 없습니다</string>
 </resources>

@@ -2,7 +2,12 @@ package com.kychan.saveaccommodation.ui
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityAccommodationDetailBinding
 import com.kychan.saveaccommodation.ext.setImage
@@ -23,11 +28,19 @@ class AccommodationDetailActivity : BaseActivity<ActivityAccommodationDetailBind
 
     private fun setView() {
         with(binding) {
+            val rateSpannable = SpannableStringBuilder("★ ${accommodationItem.rate}")
+            rateSpannable.setSpan(
+                ForegroundColorSpan(Color.GREEN),
+                0,
+                1,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+
             image.setImage(accommodationItem.description.imagePath)
             title.text = accommodationItem.title
-            rate.rating = accommodationItem.rate
+            rate.text = rateSpannable
             subject.text = accommodationItem.description.subject
-            price.text = accommodationItem.description.price.toString()
+            price.text = getString(R.string.price_won, accommodationItem.description.price)
         }
     }
 

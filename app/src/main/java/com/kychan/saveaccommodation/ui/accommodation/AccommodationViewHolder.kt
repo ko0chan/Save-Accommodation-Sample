@@ -1,5 +1,9 @@
 package com.kychan.saveaccommodation.ui.accommodation
 
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +21,14 @@ class AccommodationViewHolder(
 
     fun bind(item: AccommodationItem) {
         with(binding) {
+            val rateSpannable = SpannableStringBuilder("★ ${item.rate}")
+            rateSpannable.setSpan(
+                ForegroundColorSpan(Color.GREEN),
+                0,
+                1,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+
             root.setOnClickListener {
                 itemClick(item)
             }
@@ -27,7 +39,7 @@ class AccommodationViewHolder(
             }
             image.setImage(item.thumbnail)
             title.text = item.title
-            rating.rating = item.rate / 2
+            rating.text = rateSpannable
 
             setBookmarkImage(item.isBookmark)
         }

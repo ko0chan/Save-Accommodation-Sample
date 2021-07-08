@@ -10,16 +10,19 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="64dp"
+        android:layout_width="0dp"
         android:layout_height="91dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1.5:1"
+        app:layout_constraintEnd_toStartOf="@+id/info_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/info_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
@@ -36,6 +39,7 @@
             android:lines="1"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/bookmark"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,16 +53,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RatingBar
+        <TextView
             android:id="@+id/rating"
-            style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:progressTint="@color/theme_FEDC6C"
-            android:secondaryProgressTint="@color/theme_FEDC6C"
-            android:stepSize="0.25"
+            android:textSize="16sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/title"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="★ 9.99" />
 
         <TextView
             android:id="@+id/bookmark_date"
@@ -67,7 +70,7 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/rating"
             app:layout_constraintTop_toBottomOf="@+id/rating"
-            tools:text="즐겨찾기 등록시간"/>
+            tools:text="즐겨찾기 등록시간" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
