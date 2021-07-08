@@ -1,6 +1,7 @@
 package com.kychan.saveaccommodation.data
 
 import com.google.gson.annotations.SerializedName
+import com.kychan.saveaccommodation.ui.AccommodationItem
 
 data class AccommodationResponse(
     @SerializedName("totalCount")
@@ -20,7 +21,16 @@ data class AccommodationProductResponse(
     val description: AccommodationProductDescriptionResponse? = null,
     @SerializedName("rate")
     val rate: Float = -1f,
-)
+) {
+    fun toAccommodationItem(): AccommodationItem =
+        AccommodationItem(
+            id = id,
+            thumbnail = thumbnail.orEmpty(),
+            title = name.orEmpty(),
+            rate = rate,
+            isBookmark = false
+        )
+}
 
 data class AccommodationProductDescriptionResponse(
     @SerializedName("imagePath")

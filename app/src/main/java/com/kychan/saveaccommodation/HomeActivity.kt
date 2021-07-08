@@ -7,7 +7,9 @@ import com.iron.espresso.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityHomeBinding
 import com.kychan.saveaccommodation.ui.AccommodationFragment
 import com.kychan.saveaccommodation.ui.BookmarkFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inflate(it) }
 ) {
     override fun onCreate(savedInstanceState: Bundle?) {
