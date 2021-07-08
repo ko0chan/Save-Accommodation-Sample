@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.iron.espresso.base.BaseFragment
+import com.kychan.saveaccommodation.base.BaseFragment
 import com.kychan.saveaccommodation.ui.HomeActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.FragmentBookmarkBinding

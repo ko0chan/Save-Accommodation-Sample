@@ -3,7 +3,7 @@ package com.kychan.saveaccommodation.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.iron.espresso.base.BaseActivity
+import com.kychan.saveaccommodation.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityAccommodationDetailBinding
 import com.kychan.saveaccommodation.ext.setImage
 import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem

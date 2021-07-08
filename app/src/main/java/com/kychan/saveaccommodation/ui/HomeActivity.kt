@@ -3,7 +3,7 @@ package com.kychan.saveaccommodation.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
-import com.iron.espresso.base.BaseActivity
+import com.kychan.saveaccommodation.base.BaseActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.ActivityHomeBinding
 import com.kychan.saveaccommodation.ui.accommodation.AccommodationFragment
