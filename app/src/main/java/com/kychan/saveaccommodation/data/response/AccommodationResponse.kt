@@ -1,4 +1,4 @@
-package com.kychan.saveaccommodation.data
+package com.kychan.saveaccommodation.data.response
 
 import com.google.gson.annotations.SerializedName
 import com.kychan.saveaccommodation.ui.accommodation.AccommodationDescriptionItem

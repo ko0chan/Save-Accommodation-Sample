@@ -1,7 +1,7 @@
 package com.kychan.saveaccommodation.api
 
-import com.kychan.saveaccommodation.data.AccommodationResponse
-import com.kychan.saveaccommodation.data.BaseResponse
+import com.kychan.saveaccommodation.data.response.AccommodationResponse
+import com.kychan.saveaccommodation.data.response.BaseResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -5,6 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.rxjava2.observable
 import com.kychan.saveaccommodation.api.AccommodationApi
+import com.kychan.saveaccommodation.data.response.AccommodationProductResponse
 import io.reactivex.Observable
 import javax.inject.Inject
 
