@@ -1,4 +1,4 @@
-package com.kychan.saveaccommodation.ui
+package com.kychan.saveaccommodation.ui.accommodation
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.iron.espresso.base.BaseFragment
-import com.kychan.saveaccommodation.HomeActivity
+import com.kychan.saveaccommodation.ui.HomeActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.FragmentBookmarkBinding
+import com.kychan.saveaccommodation.ui.AccommodationDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +20,7 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>() {
 
     private val bookmarkAdapter by lazy {
         BookmarkAdapter({
-            //item click
+            startActivity(AccommodationDetailActivity.getIntent(requireContext(), it.toAccommodationItem()))
         }, {
             bookmarkViewModel.deleteAccommodation(it.id)
         })

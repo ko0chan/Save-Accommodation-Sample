@@ -4,7 +4,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.kychan.saveaccommodation.data.local.AccommodationEntity
 import com.kychan.saveaccommodation.data.local.AccommodationLocalDataSource
-import com.kychan.saveaccommodation.ui.AccommodationItem
+import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem
 import com.kychan.saveaccommodation.ui.bookmark.BookmarkItem
 import io.reactivex.Observable
 import javax.inject.Inject

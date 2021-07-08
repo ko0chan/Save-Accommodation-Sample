@@ -3,7 +3,7 @@ package com.kychan.saveaccommodation.data.local
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.kychan.saveaccommodation.ui.AccommodationItem
+import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem
 import com.kychan.saveaccommodation.ui.bookmark.BookmarkDescriptionItem
 import com.kychan.saveaccommodation.ui.bookmark.BookmarkItem
 

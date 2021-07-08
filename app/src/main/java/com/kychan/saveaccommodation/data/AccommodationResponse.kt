@@ -1,8 +1,8 @@
 package com.kychan.saveaccommodation.data
 
 import com.google.gson.annotations.SerializedName
-import com.kychan.saveaccommodation.ui.AccommodationDescriptionItem
-import com.kychan.saveaccommodation.ui.AccommodationItem
+import com.kychan.saveaccommodation.ui.accommodation.AccommodationDescriptionItem
+import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem
 
 data class AccommodationResponse(
     @SerializedName("totalCount")

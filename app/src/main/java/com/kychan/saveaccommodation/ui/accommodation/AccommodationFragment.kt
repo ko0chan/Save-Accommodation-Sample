@@ -1,4 +1,4 @@
-package com.kychan.saveaccommodation.ui
+package com.kychan.saveaccommodation.ui.accommodation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.iron.espresso.base.BaseFragment
-import com.kychan.saveaccommodation.HomeActivity
+import com.kychan.saveaccommodation.ui.HomeActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.FragmentAccommodationBinding
+import com.kychan.saveaccommodation.ui.AccommodationDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +19,7 @@ class AccommodationFragment : BaseFragment<FragmentAccommodationBinding>() {
 
     private val accommodationAdapter by lazy {
         AccommodationAdapter({
-            //item click
+           startActivity(AccommodationDetailActivity.getIntent(requireContext(), it))
         }, {
             if (it.isBookmark) {
                 accommodationViewModel.deleteAccommodation(it.id)

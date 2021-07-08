@@ -1,4 +1,4 @@
-package com.kychan.saveaccommodation.ui
+package com.kychan.saveaccommodation.ui.accommodation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
