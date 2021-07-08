@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface AccommodationApi {
     @GET("App/json/{page}.json")
-    fun getSearchImage(
+    fun getAccommodationList(
         @Path("page") page: Int,
     ): Single<BaseResponse<AccommodationResponse>>
 }
