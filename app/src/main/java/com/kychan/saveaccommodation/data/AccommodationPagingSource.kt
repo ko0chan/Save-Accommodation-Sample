@@ -3,7 +3,7 @@ package com.kychan.saveaccommodation.data
 import androidx.paging.PagingState
 import androidx.paging.rxjava2.RxPagingSource
 import com.kychan.saveaccommodation.api.AccommodationApi
-import com.kychan.saveaccommodation.data.response.AccommodationProductResponse
+import com.kychan.saveaccommodation.data.remote.response.AccommodationProductResponse
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException

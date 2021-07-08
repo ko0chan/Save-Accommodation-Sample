@@ -1,11 +1,12 @@
-package com.kychan.saveaccommodation.data
+package com.kychan.saveaccommodation.data.remote
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.rxjava2.observable
 import com.kychan.saveaccommodation.api.AccommodationApi
-import com.kychan.saveaccommodation.data.response.AccommodationProductResponse
+import com.kychan.saveaccommodation.data.AccommodationPagingSource
+import com.kychan.saveaccommodation.data.remote.response.AccommodationProductResponse
 import io.reactivex.Observable
 import javax.inject.Inject
 
