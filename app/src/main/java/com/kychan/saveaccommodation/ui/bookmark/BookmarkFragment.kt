@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.kychan.saveaccommodation.base.BaseFragment
@@ -11,6 +13,7 @@ import com.kychan.saveaccommodation.ui.HomeActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.FragmentBookmarkBinding
 import com.kychan.saveaccommodation.ui.AccommodationDetailActivity
+import com.kychan.saveaccommodation.ui.SortType
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +47,33 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>() {
         with(binding) {
             (activity as HomeActivity).supportActionBar?.title = getString(R.string.bookmark)
             rvBookmark.adapter = bookmarkAdapter
+
+            ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.sort_array,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                sortSpinner.adapter = adapter
+            }
+            sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    bookmarkAdapter.submitList(null)
+                    when (position) {
+                        0 -> {
+                            bookmarkViewModel.setSortType(SortType.RECENT)
+                        }
+                        1 -> {
+                            bookmarkViewModel.setSortType(SortType.RATING)
+                        }
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+            }
         }
     }
 

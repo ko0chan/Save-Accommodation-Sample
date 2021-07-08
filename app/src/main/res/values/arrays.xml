@@ -4,4 +4,9 @@
         <item>@string/accommodation_list</item>
         <item>@string/bookmark</item>
     </string-array>
+
+    <string-array name="sort_array">
+        <item>@string/sort_recent</item>
+        <item>@string/sort_rating</item>
+    </string-array>
 </resources>
