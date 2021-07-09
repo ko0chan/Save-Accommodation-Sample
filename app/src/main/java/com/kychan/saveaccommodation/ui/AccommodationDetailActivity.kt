@@ -7,15 +7,20 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import androidx.activity.viewModels
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.base.BaseActivity
 import com.kychan.saveaccommodation.databinding.ActivityAccommodationDetailBinding
 import com.kychan.saveaccommodation.ext.setImage
 import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AccommodationDetailActivity : BaseActivity<ActivityAccommodationDetailBinding>({
     ActivityAccommodationDetailBinding.inflate(it)
 }) {
+    private val accommodationDetailViewModel: AccommodationDetailViewModel by viewModels()
+
     private val accommodationItem: AccommodationItem by lazy {
         intent.getSerializableExtra(KEY_ACCOMMODATION_ITEM) as AccommodationItem
     }
@@ -41,6 +46,25 @@ class AccommodationDetailActivity : BaseActivity<ActivityAccommodationDetailBind
             rate.text = rateSpannable
             subject.text = accommodationItem.description.subject
             price.text = getString(R.string.price_won, accommodationItem.description.price)
+            setBookmarkImage(accommodationItem.isBookmark)
+
+            bookmark.setOnClickListener {
+                if (accommodationItem.isBookmark) {
+                    accommodationDetailViewModel.deleteAccommodation(accommodationItem.id)
+                } else {
+                    accommodationDetailViewModel.insertAccommodation(accommodationItem)
+                }
+                accommodationItem.isBookmark = !accommodationItem.isBookmark
+                setBookmarkImage(accommodationItem.isBookmark)
+            }
+        }
+    }
+
+    private fun setBookmarkImage(isBookmark: Boolean) {
+        if (isBookmark) {
+            binding.bookmark.setImageResource(R.drawable.ic_bookmark)
+        } else {
+            binding.bookmark.setImageResource(R.drawable.ic_twotone_bookmark)
         }
     }
 

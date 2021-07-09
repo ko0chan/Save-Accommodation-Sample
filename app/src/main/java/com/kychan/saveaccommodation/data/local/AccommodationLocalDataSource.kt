@@ -1,6 +1,7 @@
 package com.kychan.saveaccommodation.data.local
 
 import com.kychan.saveaccommodation.data.local.dao.AccommodationDao
+import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -15,11 +16,11 @@ class AccommodationLocalDataSource @Inject constructor(
         return accommodationDao.getAccommodationId()
     }
 
-    fun insertAccommodation(accommodationEntity: AccommodationEntity) {
-        accommodationDao.insertAccommodation(accommodationEntity)
+    fun insertAccommodation(accommodationEntity: AccommodationEntity): Completable {
+        return accommodationDao.insertAccommodation(accommodationEntity)
     }
 
-    fun deleteAccommodation(id: Int) {
-        accommodationDao.deleteAccommodation(id)
+    fun deleteAccommodation(id: Int): Completable {
+        return accommodationDao.deleteAccommodation(id)
     }
 }

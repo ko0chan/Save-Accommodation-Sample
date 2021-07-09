@@ -29,7 +29,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inf
 
     private fun setView() {
         with(binding) {
-            setSupportActionBar(toolbar)
+            toolbar.title = getString(R.string.accommodation_list)
             val studyTabList = resources.getStringArray(R.array.home_tab)
             studyTabList.forEach { title ->
                 bottomTab.addTab(bottomTab.newTab().setText(title))
@@ -40,6 +40,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>({ ActivityHomeBinding.inf
                     override fun onTabSelected(tab: TabLayout.Tab?) {
                         tab ?: return
 
+                        toolbar.title = tab.text
                         val selectTabFragment = supportFragmentManager.findFragmentByTag("${tab.text}")
                         if (selectTabFragment == null) {
                             supportFragmentManager.beginTransaction()

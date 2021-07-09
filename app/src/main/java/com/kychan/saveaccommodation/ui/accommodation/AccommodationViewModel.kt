@@ -45,16 +45,20 @@ class AccommodationViewModel @Inject constructor(
 
     fun insertAccommodation(item: AccommodationItem) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-        Thread {
+        compositeDisposable.add(
             accommodationRepository.insertAccommodation(
                 AccommodationEntity.of(item, dateFormat.format(System.currentTimeMillis()))
             )
-        }.start()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe()
+        )
     }
 
     fun deleteAccommodation(id: Int) {
-        Thread {
-            accommodationRepository.deleteAccommodation(id)
-        }.start()
+        accommodationRepository.deleteAccommodation(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
     }
 }

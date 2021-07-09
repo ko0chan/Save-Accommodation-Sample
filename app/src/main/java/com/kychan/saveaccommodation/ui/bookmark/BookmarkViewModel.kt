@@ -64,8 +64,14 @@ class BookmarkViewModel @Inject constructor(
     }
 
     fun deleteAccommodation(id: Int) {
-        Thread {
+        compositeDisposable.add(
             accommodationRepository.deleteAccommodation(id)
-        }.start()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                },{
+                    Log.e("BookmarkViewModel", it.toString())
+                })
+        )
     }
 }

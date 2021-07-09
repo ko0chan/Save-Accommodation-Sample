@@ -7,6 +7,7 @@ import com.kychan.saveaccommodation.data.local.AccommodationLocalDataSource
 import com.kychan.saveaccommodation.data.remote.AccommodationRemoteDataSource
 import com.kychan.saveaccommodation.ui.accommodation.AccommodationItem
 import com.kychan.saveaccommodation.ui.bookmark.BookmarkItem
+import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -37,11 +38,11 @@ class AccommodationRepository @Inject constructor(
             }
     }
 
-    fun insertAccommodation(accommodationEntity: AccommodationEntity) {
-        accommodationLocalDataSource.insertAccommodation(accommodationEntity)
+    fun insertAccommodation(accommodationEntity: AccommodationEntity): Completable {
+        return accommodationLocalDataSource.insertAccommodation(accommodationEntity)
     }
 
-    fun deleteAccommodation(id: Int) {
-        accommodationLocalDataSource.deleteAccommodation(id)
+    fun deleteAccommodation(id: Int): Completable {
+        return accommodationLocalDataSource.deleteAccommodation(id)
     }
 }

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.kychan.saveaccommodation.data.local.AccommodationEntity
+import io.reactivex.Completable
 import io.reactivex.Observable
 
 @Dao
@@ -15,9 +16,9 @@ interface AccommodationDao {
     fun getAccommodationId(): List<Int>
 
     @Insert
-    fun insertAccommodation(accommodationEntity: AccommodationEntity)
+    fun insertAccommodation(accommodationEntity: AccommodationEntity): Completable
 
     @Query("DELETE FROM accommodation_table WHERE id = (:id)")
-    fun deleteAccommodation(id: Int)
+    fun deleteAccommodation(id: Int): Completable
 
 }

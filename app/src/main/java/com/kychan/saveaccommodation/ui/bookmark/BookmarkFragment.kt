@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.kychan.saveaccommodation.base.BaseFragment
-import com.kychan.saveaccommodation.ui.HomeActivity
 import com.kychan.saveaccommodation.R
 import com.kychan.saveaccommodation.databinding.FragmentBookmarkBinding
 import com.kychan.saveaccommodation.ui.AccommodationDetailActivity
@@ -45,7 +44,6 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>() {
 
     private fun setView() {
         with(binding) {
-            (activity as HomeActivity).supportActionBar?.title = getString(R.string.bookmark)
             rvBookmark.adapter = bookmarkAdapter
 
             ArrayAdapter.createFromResource(
