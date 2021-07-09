@@ -28,6 +28,10 @@ class AccommodationViewModel @Inject constructor(
         get() = _accommodationList
 
     init {
+        fetchAccommodationList()
+    }
+
+    fun fetchAccommodationList() {
         compositeDisposable.add(
             accommodationRepository
                 .getAccommodationList()

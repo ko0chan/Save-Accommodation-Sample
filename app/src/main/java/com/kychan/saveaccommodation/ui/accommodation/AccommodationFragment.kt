@@ -55,6 +55,12 @@ class AccommodationFragment : BaseFragment<FragmentAccommodationBinding>() {
         }
     }
 
+    override fun onResume() {
+        accommodationAdapter.refresh()
+        accommodationViewModel.fetchAccommodationList()
+        super.onResume()
+    }
+
     companion object {
         fun newInstance() =
             AccommodationFragment()
